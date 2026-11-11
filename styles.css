@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+    background-color: bisque;
+    color: #4a1f1f;
+    font-family: Arial, sans-serif;
+}
+
+h1,
+body > p {
+    text-align: center;
+}
+
+.Mother-div {
+    display: grid;
+    max-width: 900px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 16px;
+    margin: 24px auto;
+    padding: 20px;
+    border: 2px solid crimson;
+}
+
+.Grid_items {
+    display: grid;
+    aspect-ratio: 1;
+    place-items: center;
+    border-radius: 50%;
+    background-color: firebrick;
+    color: #ffffff;
+    font-size: 1.25rem;
+}
