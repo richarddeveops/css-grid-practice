@@ -1,13 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
 * {
     box-sizing: border-box;
 }
 
+:root {
+    color-scheme: light;
+    --paper: #f5f4ef;
+    --ink: #111111;
+    --vermilion: #d92b2b;
+    --body: "Plus Jakarta Sans", sans-serif;
+    --display: "Archivo Black", sans-serif;
+}
+
 body {
     margin: 0;
-    padding: 24px;
-    background-color: bisque;
-    color: #4a1f1f;
-    font-family: Arial, sans-serif;
+    padding: clamp(20px, 5vw, 64px);
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.6;
+}
+
+h1 {
+    margin: 0;
+    font: clamp(2rem, 5vw, 4rem)/1.02 var(--display);
+    letter-spacing: -0.055em;
+}
+
+body > p {
+    margin: 14px 0 28px;
+    color: #55524c;
 }
 
 h1,
@@ -18,19 +41,55 @@ body > p {
 .Mother-div {
     display: grid;
     max-width: 900px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+    gap: 0;
     margin: 24px auto;
-    padding: 20px;
-    border: 2px solid crimson;
+    padding: 0;
+    border: 2px solid var(--vermilion);
+    background: var(--vermilion);
 }
 
 .Grid_items {
     display: grid;
-    aspect-ratio: 1;
+    min-height: clamp(110px, 18vw, 190px);
     place-items: center;
-    border-radius: 50%;
-    background-color: firebrick;
-    color: #ffffff;
-    font-size: 1.25rem;
+    border: 1px solid var(--paper);
+    background-color: var(--paper);
+    color: var(--ink);
+    font: clamp(1.25rem, 3vw, 2rem) var(--display);
+    transition: background-color 180ms ease, color 180ms ease;
+}
+
+.Grid_items:nth-child(4n + 1) {
+    background: var(--vermilion);
+    color: var(--paper);
+}
+
+.Grid_items:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 16px;
+    }
+
+    .Mother-div {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+:focus-visible {
+    outline: 3px solid var(--vermilion);
+    outline-offset: 4px;
 }
